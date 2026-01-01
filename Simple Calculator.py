@@ -38,6 +38,13 @@ def calculate():
         messagebox.showerror("Input Error ! ", "Please enter valid numbers.")
     except ZeroDivisionError:
         messagebox.showerror("Math Error ! ", "Division by zero is not allowed.")
+def clear_fields():
+    entry_num1.delete(0, tk.END)
+    entry_num2.delete(0, tk.END)
+    operation_var.set("SELECT")
+    result_label.config(text="Result: ")
+
+
 
 # Main GUI Part
 window = tk.Tk()
@@ -56,9 +63,18 @@ operation_var.set("SELECT")
 tk.Label(window, text="Select Operation\n⬇️", bg="lightblue").pack()
 operations = ["Add(+)", "Subtract(-)", "Multiply(*)", "Divide(/)", "Modulus(%)", "Exponent(^)", "Factorial(!)"]
 tk.OptionMenu(window, operation_var, *operations).pack(pady=5)
-tk.Button(window, text="Calculate", command=calculate, bg="Red").pack(pady=10)
+tk.Button(window, text="Calculate", command=calculate, bg="Green").pack(pady=10)
 result_label = tk.Label(window, text="Result: ", font=("Arial", 12))
 result_label.pack(pady=10)
+tk.Button(
+    window,
+    text="Clear",
+    command=clear_fields,
+    bg="Red",
+    fg="white"
+).pack(pady=5)
+
 
 window.mainloop()
+
 
