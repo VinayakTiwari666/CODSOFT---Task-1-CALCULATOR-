@@ -61,3 +61,4 @@ result_label = tk.Label(window, text="Result: ", font=("Arial", 12))
 result_label.pack(pady=10)
 
 window.mainloop()
+
